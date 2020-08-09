@@ -1,0 +1,136 @@
+.menubarContainer{
+    
+    top: 0;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+
+}
+.menubarContent{
+    width: 100%; 
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.logoContainer{
+    margin-left: 2%;
+    width: 150px;
+}
+.logoContainer img{
+    width: 100%;
+}
+.menuList{
+    display: flex;
+    margin-right: 2%;
+}
+.menuItem{
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+    color:#333;
+}
+.menuItem a{
+    color:#333;
+    text-decoration: none;
+}
+.menuItem:last-child{
+    margin-right: 0px;
+}
+.menuItem:hover a{
+    color:#222;
+}
+
+.subMenu{
+    max-height: 0px;
+    position: absolute;  
+    left: -20px;
+    top: 30px;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    transition: all .3s ease;
+
+}
+.subMenuItem{
+    padding:10px;
+    text-align: center;
+    transition: all .3s ease;
+    color:#333;
+}
+.subMenuItem a{
+
+}
+.subMenuItem:hover{
+    background-color: #333;
+    
+}
+.subMenuItem:hover a{
+    
+    color:white;
+}
+.menuItem:hover .subMenu{
+    max-height: 1000px;
+    padding-top: 10px;
+}
+
+
+.burger{
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 20px;
+    padding:5px;
+    cursor: pointer;
+    margin-right: 2%;
+}
+
+.burger_child{
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+    margin-top: 5px;
+}
+
+
+
+@media(max-width:991px){
+    .menuList{
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 68px;
+        height: 100vh;
+        overflow-y: auto;
+        width: 100%;
+        background-color: blanchedalmond;
+        transition: all .3s ease;
+        transform:translateX(100%);
+        margin-right: 0%;
+    }
+    .menuItem{
+        margin-right: 0px;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+    .menuOpen{
+        transform:translateX(0%)
+    }
+    .burger{
+        display: flex;
+    }
+    .subMenu{
+        position: relative;
+        padding:0;
+        padding-left:40px;
+        top:0;
+        
+    }
+    .subMenuItem{
+        text-align: start;
+    }
+}

@@ -1,209 +1,87 @@
-import Head from 'next/head'
+import NavBar from "../components/NavBar/NabBar"
+import Carousel from "../components/Carousel/Carousel"
+import Horizontal_showcase from "../components/Horizontal_showcase/Hori_Showcase"
+import Vertical_showcase from "../components/Vertical_Showcase/Vertical_Showcase"
+import Block_showcase from "../components/Block_Showcase/Block_showcase"
+import Head from "next/head"
 
-export default function Home() {
+const blocks_upper= [
+  {
+      img_link:"./image/concepts-02.png",
+      title:"學習電腦相關的知識",
+      text:"教授孩子不同類型的電腦知識，讓小朋友更加認識週遭的世界。"
+
+  },
+  {
+      img_link:"./image/concepts-03.png",
+      title:"掌握60個程式設計概念",
+      text:"每星期課堂學習一個程式設計概念，60週後成為電腦小博士！"
+
+  },
+  {
+      img_link:"./image/concepts-04.png",
+      title:"提升網上學習能力",
+      text:"教授孩子如何善用互聯網資源，自己解決問題及學會持續學習。"
+
+  }
+]
+
+const blocks_bottom= [
+  {
+      img_link:"./image/tool-1.jpg"
+  },
+  {
+    img_link:"./image/tool-2.jpg"
+  },
+  {
+    img_link:"./image/tool-3.jpg"
+  },
+  {
+    img_link:"./image/tool-4.jpg"
+  },
+  {
+    img_link:"./image/tool-5.jpg"
+  },
+  {
+    img_link:"./image/tool-6.jpg"
+  },
+        
+
+  
+]
+
+const Index = (props) => {
   return (
-    <div className="container">
+    <div className="app">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Amazing Daniel</title>
       </Head>
+      <main className="main">
+        <NavBar />
+        <Carousel />
+        <Horizontal_showcase 
+          direction={"l_to_r"}
+          img_link={"./images.jpeg"}
+          title={"不只是興趣班，而是一生受用的課程"}
+          color={'#333'}
+          text={"我們提供香港絕無僅有「程式設計常規課程」，而非一般的「短期興趣課程」，因為我們並不視程式設計為一門興趣，而是每個小朋友都應該擁有的能力。未來將是一個科技主導的世界，從事不同工作也總離不開電腦。我們課程所教授的知識，將會是一生受用的知識。"} />
+          <div style={{backgroundColor:"#530275",paddingTop:'40px',paddingBottom:'40px'}}>
+          <Vertical_showcase
+          direction={"b_to_t"}
+          line={true}
+          bgColor={"#fff"}
+          color={'#fff'}
+          img_link={"./images.jpeg"}
+          title={"重視程式設計概念，幫助孩子打好基礎"}
+          text={"世界每天在變，要追上科技發展的步屐，幾乎是不可能的任務。為了讓小孩子更能適應每天在變的社會，我們的課程十分重視程式設計概念，透過生活化的教學方式，幫助小朋友掌握最基礎的程式設計概念，迎接世界瞬息萬變的挑戰。就好像練好一副強健體魄，無論日後參與任何運動，都會有更優秀的表現。"} />
+          </div>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+          <Block_showcase blocks={blocks_upper} direction={"t_to_b"} bgColor={"#333"} title={"課程教授3類型內容"} line={true} backgroundColor={'#333'}/>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+          <Block_showcase  blocks={blocks_bottom} direction={"t_to_b"} bgColor={"#333"} title={"透過一系列工具，實踐不同編程概念"} line={true} backgroundColor={'#333'}/>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
   )
 }
+
+export default Index;
